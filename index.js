@@ -18,6 +18,36 @@ tile("assets/grass.png", 0, 0, window.innerWidth/100, heightOfGrass/100);
 
 //Adding imgaes to the screen code starts here. 
 
+/*et character = newImage("assets/green-character.gif", 100, 100)
+
+document.addEventListener("keydown", (event) =>{
+    const speed = 10;
+
+    const characterRect = character.getBoundingClientRect();
+    let newLeft = characterRect.left;
+    let newBottom = characterRect.bottom;
+
+    switch(event.key){
+        case "ArrowLeft":
+            newLeft -= speed;
+            break;
+        case "ArrowUp":
+            newBottom += speed;
+            break;
+        case "ArrowRight":
+            newLeft += speed;
+            break;
+        case "ArrowDown":
+            newBottom -= speed;
+            break;
+    
+    }
+
+    character.style.left = newLeft + "px"
+    character.style.bottom = newBottom + "px"
+
+})
+*/
 function newImage (src, positionLeft, positionBottom){  // When this fuction is executed all images appear on screen. Added as arguments below. 
 
     let landImages = document.createElement('img');
@@ -43,8 +73,7 @@ newImage("assets/red-character.gif", 50, 150); //testing adding characters.
 
 //Adding inventory items a starts here.
 
-const inventory = newInventory()
-
+//New item code starts here.
 function newItem(src, positionLeft, positionBottom){ // This fuction runs to add new items on screen. 
     let  landImages = newImage(src, positionLeft, positionBottom); //links newImage and newItem functions. Not sure about this statememt. 
 
@@ -58,6 +87,14 @@ function newItem(src, positionLeft, positionBottom){ // This fuction runs to add
 
 }
 
+newItem("assets/sword.png",500,405);
+newItem("assets/shield.png", 165, 185);
+newItem("assets/staff.png", 600, 250);
+
+//New item code ends here.
+
+//New inventory code starts here.
+const inventory = newInventory()//Mede inventory variable global, so inventory would append as a new inventory item. 
 
 function newInventory() {
     let inventory = document.createElement('div')
@@ -74,13 +111,8 @@ function newInventory() {
     inventory.style.backgroundColor = 'brown'
     document.body.append(inventory)
     return inventory
-    
+
 }
 
-
-
-newItem("assets/sword.png",500,405);
-newItem("assets/shield.png", 165, 185);
-newItem("assets/staff.png", 600, 250);
-
+///////////////////////////////////////////////////
 
